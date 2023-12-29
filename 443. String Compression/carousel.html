@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .carousel-container {
+            overflow-x: scroll;
+            display: flex;
+            width: 100%;
+            height: 400px; /* Adjust the height based on your images' aspect ratio */
+        }
+
+        .carousel {
+            display: flex;
+        }
+
+        .carousel img {
+            width: 700px;
+            height: 400px; /* Adjust the height based on your images' aspect ratio */
+            object-fit: cover; /* Maintain aspect ratio and cover the container */
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="arrow prev" onclick="scrollImages('prev')">&#9665;</div>
+    <div class="carousel-container">
+        <div class="carousel">
+            <img src="./1.png" alt="">
+            <img src="./2.png" alt="">
+            <img src="./3.png" alt="">
+            <img src="./4.png" alt="">
+            <img src="./5.png" alt="">
+            <img src="./6.png" alt="">
+            <img src="./7.png" alt="">
+            <img src="./8.png" alt="">
+            <img src="./9.png" alt="">
+            <img src="./10.png" alt="">
+            <img src="./11.png" alt="">
+            <img src="./12.png" alt="">
+            <img src="./13.png" alt="">
+            <img src="./14.png" alt="">
+            <img src="./15.png" alt="">
+            <img src="./16.png" alt="">
+            <img src="./17.png" alt="">
+            <img src="./18.png" alt="">
+            <img src="./19.png" alt="">
+            <img src="./20.png" alt="">
+        </div>
+    </div>
+    <div class="arrow next" onclick="scrollImages('next')">&#9655;</div>
+
+    <script>
+        const carouselContainer = document.querySelector('.carousel-container');
+        const carousel = document.querySelector('.carousel');
+        const arrowPrev = document.querySelector('.prev');
+        const arrowNext = document.querySelector('.next');
+
+        let scrollAmount = 0;
+
+        function scrollImages(direction) {
+            const scrollStep = 700; // Adjust the step based on your images' width
+
+            if (direction === 'prev') {
+                scrollAmount -= scrollStep;
+            } else {
+                scrollAmount += scrollStep;
+            }
+
+            carouselContainer.scrollTo({
+                top: 0,
+                left: scrollAmount,
+                behavior: 'smooth',
+            });
+        }
+    </script>
+</body>
+
+</html>
